@@ -40,7 +40,7 @@ public class UserServiceTest {
             userService.dropUsersTable();
             userService.createUsersTable();
             userService.saveUser(testName, testLastName, testAge);
-
+            System.err.println(userService.getAllUsers());
             User user = userService.getAllUsers().get(0);
 
             if (!testName.equals(user.getName())
