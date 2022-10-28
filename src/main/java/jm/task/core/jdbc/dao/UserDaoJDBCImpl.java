@@ -10,7 +10,6 @@ import java.util.List;
 public class UserDaoJDBCImpl implements UserDao {
     public UserDaoJDBCImpl() { //default constructor
     }
-
     public void createUsersTable() {
         try (Connection connection = Util.getConnection();
              Statement stat = connection.createStatement()) {
@@ -21,7 +20,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
 
     }
-
     public void dropUsersTable() {
         try (Connection connection = Util.getConnection();
              Statement stat = connection.createStatement()) {
@@ -31,7 +29,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
 
     }
-
     public void saveUser(String name, String lastName, byte age) {
         try (Connection connection = Util.getConnection();
              var ppStmt = connection.prepareStatement("INSERT INTO user (name, last_name, age) VALUES(?, ?, ?)")) {
@@ -45,7 +42,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
 
     }
-
     public void removeUserById(long id) {
         try (Connection connection = Util.getConnection();
              PreparedStatement ppStmt = connection.prepareStatement("DELETE FROM user WHERE ID=?")) {
@@ -56,7 +52,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
 
     }
-
     public List<User> getAllUsers() {
 
         List<User> userList = new ArrayList<>();
@@ -78,7 +73,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
         return userList;
     }
-
     public void cleanUsersTable() {
 
         try(Connection connection = Util.getConnection();
